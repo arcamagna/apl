@@ -108,7 +108,7 @@ then
 exit
 fi
 
-source quietgettags.sh "${files[0]}"
+source gettags.sh "${files[0]}"
 
 skip=true
 
