@@ -34,12 +34,7 @@ date="$5"
 genre="$6"
 track="$7"
 
-## -- FFPROBE (read existing tags) -- ##
-
 source gettags.sh "$1"
-
-## -- end FFPROBE -- ##
-
 
 ## -- Check for track number in filename -- ##
 
