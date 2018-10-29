@@ -36,28 +36,7 @@ track="$7"
 
 ## -- FFPROBE (read existing tags) -- ##
 
-meta=$(ffprobe -v quiet -show_entries "$type"=title,artist,album,track,date,genre -hide_banner -of default=nw=1 "$1")
-
-if [ "${meta}" ]
-then
-   declare -A tags
-
-   while read -r line
-   do
-      i="${line//'TAG:'/}"
-      key=${i%%=*}
-      key=${key^^}
-      val=${i#*=}
-      tags[$key]="$val"
-   done <<< "$meta"
-
-   albumbak=${tags[ALBUM]}
-   artistbak=${tags[ARTIST]}
-   titlebak=${tags[TITLE]}
-   trackbak=${tags[TRACK]}
-   genrebak=${tags[GENRE]}
-   datebak=${tags[DATE]}
-fi
+source gettags.sh "$1"
 
 ## -- end FFPROBE -- ##
 
