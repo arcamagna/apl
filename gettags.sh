@@ -25,8 +25,6 @@ esac
 
 meta=$(ffprobe -v quiet -show_entries "$type"=title,artist,album,track,date,genre -hide_banner -of default=nw=1 "$1")
 
-#echo $meta
-
 if [ "${meta}" ]
 then
    declare -A tags
@@ -51,7 +49,3 @@ else
 fi
 
 ## -- end FFPROBE -- ##
-
-#echo "$meta"
-
-#exit
